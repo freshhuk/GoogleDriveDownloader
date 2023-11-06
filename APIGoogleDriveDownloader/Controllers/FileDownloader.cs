@@ -33,8 +33,7 @@ namespace APIGoogleDriveDownloader.Controllers
             }
             catch (Exception ex )
             {
-                return BadRequest($"Error {ex}");
-                
+                return BadRequest($"Error {ex}");               
             }           
        
         }
