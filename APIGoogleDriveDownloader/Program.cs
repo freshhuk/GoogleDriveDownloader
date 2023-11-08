@@ -19,6 +19,13 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "api/{controller=DownloaderOnGoogleDriveController}/{action=DriveUploadBasic}/{id?}");
+
+app.MapControllerRoute(
+    name: "filedowloader",
+    pattern: "filedowloader/{*article}",
+    defaults: new { controller = "FileDownloader", action = "DowloadFile" });
 
 app.Run();

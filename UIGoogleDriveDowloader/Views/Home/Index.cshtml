@@ -1,1 +1,14 @@
-﻿
+﻿<html>
+    <body>
+        <form method="post" enctype="multipart/form-data" asp-action="UploadFile">
+        <div class="form-group">
+            <label asp-for="file"></label>
+            <input asp-for="file" class="form-control" type="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Загрузить файл</button>
+        </form>
+    </body>
+</html>
+
+
+

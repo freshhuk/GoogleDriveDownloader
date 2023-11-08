@@ -4,7 +4,7 @@ using System.IO;
 
 namespace APIGoogleDriveDownloader.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("filedowloader")]
     [ApiController]
     public class FileDownloader : ControllerBase
     {
