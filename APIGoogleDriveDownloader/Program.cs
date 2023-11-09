@@ -6,6 +6,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configure app configuration
+builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
+    .AddJsonFile("secrets.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
