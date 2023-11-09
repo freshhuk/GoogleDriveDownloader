@@ -10,7 +10,6 @@ namespace APIGoogleDriveDownloader.Controllers
     [ApiController]
     public class DownloaderOnGoogleDriveController : ControllerBase
     {
-        
         public static string DriveUploadBasic(string filePath)
         {
             try
@@ -18,15 +17,18 @@ namespace APIGoogleDriveDownloader.Controllers
                 /* Load pre-authorized user credentials from the environment.
                  TODO(developer) - See https://developers.google.com/identity for
                  guides on implementing OAuth2 for your application. */
-
-                GoogleCredential credential = GoogleCredential.GetApplicationDefault()
-                    .CreateScoped(DriveService.Scope.Drive);
+                GoogleCredential credential;//Может вынести в отдельное поле
+                using (var stream = new FileStream("secrets.json", FileMode.Open, FileAccess.Read))
+                {
+                    credential = GoogleCredential.FromStream(stream)
+                        .CreateScoped(DriveService.Scope.Drive);
+                }
 
                 // Create Drive API service.
                 var service = new DriveService(new BaseClientService.Initializer
                 {
                     HttpClientInitializer = credential,
-                    ApplicationName = "Drive API Snippets"
+                    ApplicationName = "DriveAPI"
                 });
 
                 // Upload file photo.jpg on drive.

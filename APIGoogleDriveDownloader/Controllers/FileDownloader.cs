@@ -8,6 +8,7 @@ namespace APIGoogleDriveDownloader.Controllers
     [ApiController]
     public class FileDownloader : ControllerBase
     {
+        [HttpPost]
         public async Task<IActionResult> DowloadFile(IFormFile uploadedFile)
         {
             try
